@@ -1,0 +1,13 @@
+{
+  "name": "node-le-proxy",
+  "version": "0.1.0",
+  "description": "Use node to connect to publish log to the logentries site to avoid exposing ids.",
+  "main": "index.js",
+  "author": "David Posin <david.posin.smp@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "le_node": "^1.6.0"
+  }
+}
