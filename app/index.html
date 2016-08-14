@@ -1,10 +1,78 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
-    <script src="js/app.js"></script>
-  </head>
-  <body>
-    <input id="msg" type="text" />
-    <button onClick="sendLog()">Send Log</button>
-  </body>
+<head>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+crossorigin="anonymous">
+</script>
+<script src="js/app.js">
+</script>
+<title>LogEntries - Node as a Logging Proxy Sample</title>
+
+<style>
+        * {
+            padding: 5px 5px 5px 5px;
+            background: #333;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            color: white;
+        }
+
+        ol {
+            padding-left:50px;
+        }
+
+        .textfield{
+            width: 50%;
+        }
+</style>
+</head>
+<body>
+    <p>
+        <div>
+            This sample illustrates using Node.js as a proxy between the client application and the Logentries servers.The client sends the log message via AJAX to a pre-defined route on the server.  That server based route send the message onto Logentries.  In order to maximize portability and security, the token is kept in a seperate json file that could be encrypted or secured as long as the user account running the node server has access.
+        </div>
+        <div>
+            To see the sample in action:
+            <ol>
+                <li>
+                    Update the token.json file by replacing the placeholder text with the target logs token.
+                </li>
+                <li>
+                    Start the server by running "node server.js". The server will be accessible on port 3000.  Note: make sure to run npm install in the project directory before starting the server.
+                </li>
+                <li>
+                    Open a web browser to http://localhost:3000.
+                </li>
+                <li>
+                    Choose a logging severity, then enter a message in the text field.
+                </li>
+                <li>
+                    Press the "Send Log" button.
+                </li>
+                <li>
+                    Check your log in a few minutes to see the new log entry.
+                </li>
+        </ol>
+    </p>
+    <p>
+        <select id="logType">
+            <option value="debug">Debug</option>
+            <option value="err">Error</option>
+            <option value="info">Info</option>
+            <option value="notice">Notice</option>
+            <option value="warning">Warning</option>
+            <option value="crit">Crit</option>
+            <option value="alert">Alert</option>
+            <option value="emerg">Emergency</option>
+        </select>
+        <input id="msg" type="text" class="textfield">
+    </p>
+    <p>
+        <button onclick="sendLog()">Send Log</button>
+    </p>
+    <div style="display: none" id="result">
+    </div>
+</body>
 </html>
