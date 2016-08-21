@@ -3,7 +3,6 @@ This server functions as a proxy to recevie a message from the client, and to fo
 Only the server knows the log token so it can't be discovered by users or man in the middle attacks between the client and server.
 Requires: Node version 0.10+
 */
-"use strict";  //strict mode is required when using ES5 variable designations.
 
 var express = require('express');
 var parser = require('body-parser');
